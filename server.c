@@ -67,7 +67,7 @@ void serve_file(int client_socket, const char* path) {
     close(client_socket);
 }
 
-// Handle incoming HTTP request
+// Handle incoming HTTP reqest
 void handle_request(int client_socket) {
     char buffer[BUFFER_SIZE];
     read(client_socket, buffer, BUFFER_SIZE);
