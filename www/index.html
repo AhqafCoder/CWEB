@@ -18,10 +18,18 @@
         main {
             flex: 1;
         }
+        .card {
+            background-color: #f9fafb; /* Light gray background */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Pop-out effect */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+        }
     </style>
 </head>
 <body class="bg-gray-100">
-    <!-- Header -->
+    <!-- Navbar -->
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto">
             <h1 class="text-2xl font-bold">Student Details Management System</h1>
@@ -38,7 +46,7 @@
         <!-- Quick Actions -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Add Student Card -->
-            <a href="add-student.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="add-student.html" class="card p-6 rounded-lg shadow-md">
                 <div class="text-center">
                     <i class="fas fa-user-plus text-4xl text-blue-500 mb-4"></i>
                     <h3 class="text-lg font-semibold mb-2">Add Student</h3>
@@ -47,7 +55,7 @@
             </a>
 
             <!-- View Students Card -->
-            <a href="view-students.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="view-students.html" class="card p-6 rounded-lg shadow-md">
                 <div class="text-center">
                     <i class="fas fa-users text-4xl text-green-500 mb-4"></i>
                     <h3 class="text-lg font-semibold mb-2">View Students</h3>
@@ -56,7 +64,7 @@
             </a>
 
             <!-- Search Student Card -->
-            <a href="search-student.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="search-student.html" class="card p-6 rounded-lg shadow-md">
                 <div class="text-center">
                     <i class="fas fa-search text-4xl text-purple-500 mb-4"></i>
                     <h3 class="text-lg font-semibold mb-2">Search Student</h3>
@@ -65,7 +73,7 @@
             </a>
 
             <!-- Update Student Card -->
-            <a href="update-student.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="update-student.html" class="card p-6 rounded-lg shadow-md">
                 <div class="text-center">
                     <i class="fas fa-edit text-4xl text-yellow-500 mb-4"></i>
                     <h3 class="text-lg font-semibold mb-2">Update Student</h3>
@@ -74,7 +82,7 @@
             </a>
 
             <!-- Delete Student Card -->
-            <a href="delete-student.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="delete-student.html" class="card p-6 rounded-lg shadow-md">
                 <div class="text-center">
                     <i class="fas fa-trash-alt text-4xl text-red-500 mb-4"></i>
                     <h3 class="text-lg font-semibold mb-2">Delete Student</h3>
@@ -83,7 +91,7 @@
             </a>
 
             <!-- Exit Card -->
-            <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="#" class="card p-6 rounded-lg shadow-md">
                 <div class="text-center">
                     <i class="fas fa-sign-out-alt text-4xl text-gray-500 mb-4"></i>
                     <h3 class="text-lg font-semibold mb-2">Exit</h3>
