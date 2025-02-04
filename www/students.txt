@@ -3,3 +3,6 @@ Ahqaf Ali,bcs2024488,2410303040,2004-03-04,male,ahqafaliofficial@gmail.com,70840
 Kamal Yadav,BCS2024129,2410303217,2006-11-03,male,kuldeepyad93899@gmail.com,9389923237
 Badal Saxena,BCS2024530,2410303035,2006-12-25,male,devsaxena25122006@gmail.com,7983316330
 Parth Vaish,BCS2024485,2410303331,2006-01-10,male,parthgupta5041@gmail.com,8923725041
+pallavi singh,BCS22403,2410303324,2027-01-10,female,pallavisingh100106@gmail.com,9760744598
+manthan,bcs233499,2410303324,2025-02-04,male,manthany99@gmail.con,68338368836
+

@@ -7,34 +7,28 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* Make the page fill the viewport */
         html, body {
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
-        }
-
-        body {
             display: flex;
             flex-direction: column;
         }
 
-        /* Styling for the "Student List" title */
         h2 {
             text-align: center;
             color: #007bff;
             margin-top: 20px;
-            font-size: 2.5rem; /* Larger font size */
+            font-size: 2rem;
             font-weight: bold;
             letter-spacing: 2px;
         }
 
-        /* Main content should take up all available space */
         #student-list {
-            max-width: 1200px; /* Increased the max-width to accommodate the table */
+            max-width: 90%;
             margin: 20px auto;
-            flex-grow: 1; /* Makes the content grow to push the footer down */
+            flex-grow: 1;
         }
 
         .card {
@@ -43,7 +37,7 @@
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 16px;
-            padding: 40px; /* Increased padding for more spacing */
+            padding: 20px;
             width: 100%;
         }
 
@@ -54,12 +48,14 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 16px;
+            min-width: 800px;
         }
 
         table th, table td {
-            padding: 16px 20px; /* Increased padding for a more spacious table */
+            padding: 12px 15px;
             text-align: left;
+            border-bottom: 1px solid #ddd;
+            white-space: nowrap;
         }
 
         table th {
@@ -68,63 +64,25 @@
             font-weight: bold;
         }
 
-        table td {
-            border-bottom: 1px solid #ddd;
-            white-space: nowrap; /* Prevent wrapping of table cells */
-        }
-
         table tr:hover {
             background-color: #f1f1f1;
         }
 
-        @media screen and (max-width: 600px) {
-            table th, table td {
-                display: block;
-                width: 100%;
-                text-align: right;
-            }
-
-            table th::before {
-                content: attr(data-th);
-                float: left;
-                font-weight: bold;
-                color: #007bff;
-            }
-        }
-
-        /* Ensure the footer stays at the bottom */
         footer {
             background-color: #007bff;
             color: white;
             text-align: center;
             padding: 10px;
-            margin-top: auto; /* Push footer to the bottom */
+            margin-top: auto;
             width: 100%;
         }
-
-        /* Styling for search bar */
-        #search-bar {
-            margin: 20px auto;
-            width: 50%;
-            text-align: center;
-        }
-
-        #search-bar input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-
     </style>
-
     <script>
         async function loadStudents() {
             try {
                 const response = await fetch('students.txt');
                 if (!response.ok) throw new Error("Failed to fetch students");
-
+                
                 const text = await response.text();
                 if (!text.trim()) {
                     document.getElementById("student-list").innerHTML = "<p>No students found.</p>";
@@ -151,7 +109,7 @@
                 students.forEach((student, index) => {
                     if (student.length >= 7) {
                         table += `<tr>
-                                    <td>${index + 1}.</td> <!-- S. No. Column -->
+                                    <td>${index + 1}.</td>
                                     <td>${student[0]}</td>
                                     <td>${student[1]}</td>
                                     <td>${student[2]}</td>
@@ -168,47 +126,42 @@
                 document.getElementById("student-list").innerHTML = "<p>Error loading student data.</p>";
             }
         }
-
         function searchStudents() {
-            const input = document.getElementById('search-input').value.toLowerCase();
-            const rows = document.querySelectorAll('#student-table tbody tr');
-            rows.forEach(row => {
-                const studentData = row.textContent.toLowerCase();
-                if (studentData.includes(input)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
+    const input = document.getElementById('search-input').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#student-table tbody tr');
+    
+    rows.forEach(row => {
+        const rowText = row.innerText.toLowerCase();
+        if (rowText.includes(input)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
         }
+    });
+}
+
     </script>
 </head>
 <body onload="loadStudents()">
-    <!-- Navbar -->
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Student Details Management System</h1>
             <nav>
                 <ul class="flex space-x-4">
                     <li><a href="index.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold">Home</a></li>
-                    
                     <li><a href="add-student.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold">Back</a></li>
-                
                 </ul>
             </nav>
         </div>
     </header>
+    <div id="search-bar" class="text-center my-4">
+    <input type="text" id="search-input" onkeyup="searchStudents()" 
+           class="w-1/2 p-2 border border-gray-300 rounded-lg" 
+           placeholder="Search students by name, roll number, or any detail...">
+</div>
 
-    <!-- Search Bar -->
-    <div id="search-bar">
-        <input type="text" id="search-input" onkeyup="searchStudents()" placeholder="Search students by any detail..." />
-    </div>
-
-    <!-- Main Content -->
     <h2>Student List</h2>
     <div id="student-list">Loading...</div>
-
-    <!-- Footer -->
     <footer>
         <p>Copyright (c) 2025 Ahqaf Ali All rights reserved.</p>
     </footer>

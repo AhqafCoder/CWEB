@@ -5,61 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Students</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* Make the page fill the viewport */
-        html, body {
-            height: 100%;
+        /* Reset */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
-        }
-
-        body {
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Styling for the "Student List" title */
+        /* Navbar (Restored Original) */
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Title */
         h2 {
             text-align: center;
             color: #007bff;
             margin-top: 20px;
-            font-size: 2.5rem; /* Larger font size */
+            font-size: 2rem;
             font-weight: bold;
             letter-spacing: 2px;
         }
 
-        /* Main content should take up all available space */
-        #student-list {
-            max-width: 1200px; /* Increased the max-width to accommodate the table */
-            margin: 20px auto;
-            flex-grow: 1; /* Makes the content grow to push the footer down */
-        }
-
+        /* Card container */
         .card {
-            background-color: white;
+            background: white;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 16px;
-            padding: 40px; /* Increased padding for more spacing */
-            width: 100%;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 90%;
+            overflow-x: auto; /* Horizontal scroll for small screens */
         }
 
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
+        /* Table styles */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 16px;
+            min-width: 800px;
         }
 
         table th, table td {
-            padding: 16px 20px; /* Increased padding for a more spacious table */
+            padding: 12px 15px;
             text-align: left;
+            border-bottom: 1px solid #ddd;
+            white-space: nowrap;
         }
 
         table th {
@@ -68,38 +87,17 @@
             font-weight: bold;
         }
 
-        table td {
-            border-bottom: 1px solid #ddd;
-            white-space: nowrap; /* Prevent wrapping of table cells */
-        }
-
         table tr:hover {
             background-color: #f1f1f1;
         }
 
-        @media screen and (max-width: 600px) {
-            table th, table td {
-                display: block;
-                width: 100%;
-                text-align: right;
-            }
-
-            table th::before {
-                content: attr(data-th);
-                float: left;
-                font-weight: bold;
-                color: #007bff;
-            }
-        }
-
-        /* Ensure the footer stays at the bottom */
+        /* Footer */
         footer {
             background-color: #007bff;
             color: white;
             text-align: center;
             padding: 10px;
-            margin-top: auto; /* Push footer to the bottom */
-            width: 100%;
+            margin-top: auto;
         }
     </style>
 
@@ -116,8 +114,7 @@
                 }
 
                 const students = text.trim().split("\n").map(s => s.split(","));
-                let table = `<div class="table-wrapper">
-                                <table>
+                let table = `<table>
                                     <tr>
                                         <th>S. No.</th>
                                         <th>Name</th>
@@ -132,7 +129,7 @@
                 students.forEach((student, index) => {
                     if (student.length >= 7) {
                         table += `<tr>
-                                    <td>${index + 1}.</td> <!-- S. No. Column -->
+                                    <td>${index + 1}.</td>
                                     <td>${student[0]}</td>
                                     <td>${student[1]}</td>
                                     <td>${student[2]}</td>
@@ -143,7 +140,7 @@
                                   </tr>`;
                     }
                 });
-                table += `</table></div>`;
+                table += `</table>`;
                 document.getElementById("student-list").innerHTML = `<div class="card">${table}</div>`;
             } catch (error) {
                 document.getElementById("student-list").innerHTML = "<p>Error loading student data.</p>";
@@ -152,21 +149,18 @@
     </script>
 </head>
 <body onload="loadStudents()">
-    <!-- Navbar -->
+    <!-- Navbar (Restored to Original) -->
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Student Details Management System</h1>
             <nav>
                 <ul class="flex space-x-4">
-                    
                     <li><a href="index.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold">Home</a></li>
                     <li><a href="add-student.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold">Back</a></li>
-                    
                 </ul>
             </nav>
         </div>
     </header>
-
     <!-- Main Content -->
     <h2>Student List</h2>
     <div id="student-list">Loading...</div>
