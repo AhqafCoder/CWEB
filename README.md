@@ -53,10 +53,11 @@ CWEB is designed to be simple. Just edit the `server.c` file to configure the po
 ```
 CWEB/
 ├── server.c          # Main server code
-├── www/            # Root directory for your HTML files
-│   ├── index.html  # Your main HTML file
-│   └── style.css   # Optional CSS file
-└── README.md       # This file
+├── www/              # Root directory for your HTML files
+│   ├── index.html    # Your main HTML file
+│   ├── style.css     # Optional CSS file
+│   └── students.txt  # Database of your POST() func.
+└── README.md         # This file
 ```
 
 ---
