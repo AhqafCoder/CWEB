@@ -1,4 +1,4 @@
-# 🌐 CWEB - The Minimalist C Web Server 🚀
+# 🌐 CWEB - The best C web Framework 🚀
 
 Welcome to **CWEB**, the lightweight, high-performance web server built entirely in **C**! Say goodbye to the bloat and complexity of Apache and Nginx. With CWEB, you can serve your HTML pages with ease, speed, and simplicity. 🛠️
 
