@@ -1,58 +1,123 @@
+# 🌐 CWEB - The best C web Framework 🚀
 
-# 🚀 **DocSmart: AI-Powered Healthcare Innovation**  
-
-**DocSmart** is an advanced AI-driven healthcare platform designed to optimize doctor availability, streamline appointment scheduling, and enhance patient care. By leveraging cutting-edge artificial intelligence, DocSmart minimizes wait times, prevents overcrowding, and ensures patients are matched with the right specialists.  
-
-## 🌟 **Key Features**  
-
-✅ **AI-Based Diagnosis** – Analyze patient symptoms and predict potential diseases using machine learning.  
-✅ **Smart Doctor Matching** – Connects patients with the most suitable specialists based on expertise and location.  
-✅ **Seamless Appointment Booking** – Real-time scheduling with instant availability updates.  
-✅ **Predictive Wait Time Estimation** – AI-driven insights to reduce waiting periods and improve patient experience.  
+Welcome to **CWEB**, the lightweight, high-performance web server built entirely in **C**! Say goodbye to the bloat and complexity of Apache and Nginx. With CWEB, you can serve your HTML pages with ease, speed, and simplicity. 🛠️
 
 ---
 
-## 🔧 **Installation & Setup**  
+## 🚀 **Features**
 
-1. **Clone the Repository**  
+- **Lightning Fast** ⚡: Built in C for maximum performance.
+- **Minimalist** 🎯: No unnecessary bloat, just what you need to serve web pages.
+- **Easy to Use** 🛠️: Simple configuration and setup.
+- **Cross-Platform** 🌍: Runs on Linux, macOS, and Windows (with minimal adjustments).
+- **Open Source** 💻: Fully open-source and customizable.
+
+---
+
+## 📦 **Installation**
+
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/DocSmart.git
-   cd DocSmart
-   ```  
+   git clone https://github.com/AhqafCoder/cweb.git
+   cd cweb
+   ```
 
-2. **Install Dependencies**  
+2. **Compile the Server**:
    ```bash
-   pip install django
-   ```  
+   gcc -o server server.c
+   ```
 
-3. **Run the Development Server**  
+3. **Run the Server**:
    ```bash
-   python manage.py runserver
-   ```  
-   Access the application at: `http://127.0.0.1:8000/`  
+   ./server
+   ```
+
+4. **Access Your Web Page**:
+   Open your browser and navigate to `http://localhost:8080`.
 
 ---
 
-## 💡 **Our Vision**  
-To revolutionize the healthcare experience by integrating AI-driven efficiency, reducing patient wait times, and optimizing resource allocation—all while maintaining high-quality medical services.  
+## 🛠️ **Configuration**
+
+CWEB is designed to be simple. Just edit the `server.c` file to configure the port, root directory, and other settings.
+
+```c
+#define PORT 8080
+#define ROOT_DIR "www"
+```
 
 ---
 
-## 🛠 **Tech Stack**  
+## 📂 **Directory Structure**
 
-- **Frontend:** React.js  
-- **Backend:** Django  
-- **AI & ML:** TensorFlow, NLP for symptom analysis  
-- **Database:** SQLlite3 / MongoDB  
-- **APIs:** Google Maps API for geolocation & smart navigation  
+```
+CWEB/
+├── server.c          # Main server code
+├── www/              # Root directory for your HTML files
+│   ├── index.html    # Your main HTML file
+│   ├── style.css     # Optional CSS file
+│   └── students.txt  # Database of your POST() func.
+└── README.md         # This file
+```
 
 ---
 
-## 🤝 **Contribute & Collaborate**  
+## 🚨 **Limitations**
 
-We welcome contributions from developers, AI enthusiasts, and healthcare professionals! Feel free to open issues, suggest improvements, or submit PRs to help shape the future of AI-powered healthcare.  
+- **Basic Functionality**: CWEB is designed for simplicity and may not support advanced features like SSL, virtual hosts, or complex routing.
+- **Single-Threaded**: Currently, CWEB handles one request at a time. Multi-threading support is planned for future versions.
 
-📩 **Get in Touch:** ahqafaliofficial@gmail.com 
+---
 
-📌 **Star this repo** ⭐ if you find this project useful!  
+## 🛠️ **Future Plans**
 
+- **Multi-Threading Support** 🧵: Handle multiple requests simultaneously.
+- **SSL/TLS Support** 🔒: Secure your web server with HTTPS.
+- **Configuration File** 📄: External configuration file for easier setup.
+- **Dynamic Content Support** 🎨: Add support for server-side scripting.
+
+---
+
+## 🤝 **Contributing**
+
+We welcome contributions! If you have any ideas, bug fixes, or improvements, feel free to open an issue or submit a pull request.
+
+1. Fork the repository.
+2. Create a new branch 
+3. Commit your changes 
+4. Push to the branch
+5. Open a pull request.
+
+---
+
+## 📜 **License**
+
+CWEB is licensed under the **MIT License**. Feel free to use, modify, and distribute it as you see fit.
+
+---
+
+## 🙏 **Acknowledgements**
+
+- **Inspired by**: The simplicity and power of C.
+- **Special Thanks**: To the open-source community for endless inspiration.
+
+---
+
+## 📞 **Contact**
+
+Have questions or need help? Feel free to reach out!
+
+- **Email**: ahqafaliofficial@gmail.com
+- **Twitter**: -
+- **GitHub**: [AhqafCoder](https://github.com/AhqafCoder)
+
+---
+
+## 🌟 **Star This Repository**
+
+If you find CWEB useful, please give it a ⭐️ on GitHub! Your support helps us improve and grow.
+
+---
+
+**Happy Coding!** 🎉  
+**- AhqafCoder** 🚀
